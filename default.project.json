@@ -1,0 +1,11 @@
+{
+  "name": "Redon-Tech-Fire-System",
+  "tree": {
+    "$className": "DataModel",
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "$ignoreUnknownInstances": true,
+      "$path": "src/ServerScriptService"
+    }
+  }
+}
