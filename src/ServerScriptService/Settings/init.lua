@@ -22,6 +22,7 @@ Settings.MinFirefighters = 1 -- How many firefighters are required(all teams com
 --\ MISC /--
 
 Settings.BuildingLocations = {game.Workspace.Buildings, game.Workspace.Test} -- The locations of buildings that are compatable with the system
+Settings.BrushFireLocations = {game.Workspace.Buildings, game.Workspace.Test} -- The locations of trees/brush that are compatable with the system
 
 --\ API /--
 

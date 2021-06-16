@@ -30,7 +30,7 @@ if not _G.RTFSLoaded then
     local Start = tick()
     local Module = ((LocalConfig.DevelopmentMode) and script:WaitForChild("MainModule") or LocalConfig.Asset)
 
-    if Module(LocalConfig.Settings) then
+    if Module.Load(LocalConfig.Settings) then
         _G.RTFSLoaded = true
         print("Redon Tech Fire System: Loaded V".. LocalConfig.Settings.Version .." in ".. tick() - Start " seconds.")
     else
