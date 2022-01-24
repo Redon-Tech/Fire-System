@@ -20,19 +20,21 @@
 local LocalConfig = {
     DevelopmentMode = true,
     Asset = nil,
-    Settings = require(script.Parent)
-}
+    Settings = script.Parent
+} do
+    LocalConfig.RequiredSettings = require(LocalConfig.Settings)
+end
 
 if not _G.RTFSLoaded then
     script.Parent.Parent = game.ServerScriptService
 
     _G.RTFS = script.Parent
     local Start = tick()
-    local Module = ((LocalConfig.DevelopmentMode) and script:WaitForChild("MainModule") or LocalConfig.Asset)
+    local Module = require((LocalConfig.DevelopmentMode) and script:WaitForChild("MainModule") or LocalConfig.Asset)
 
-    if Module.Load(LocalConfig.Settings) then
+    if Module.Start(LocalConfig.Settings, LocalConfig.RequiredSettings) then
         _G.RTFSLoaded = true
-        print("Redon Tech Fire System: Loaded V".. LocalConfig.Settings.Version .." in ".. tick() - Start " seconds.")
+        print("Redon Tech Fire System: Loaded V".. LocalConfig.RequiredSettings.Version .." in ".. tick() - Start .." seconds.")
     else
         error("Something went wrong while loading RTFS")
     end
