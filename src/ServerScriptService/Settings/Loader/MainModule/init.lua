@@ -37,7 +37,7 @@ MainModule.Fire = nil
 
 function MainModule.IgnitePart(Part)
     local FireSize = Instance.new("IntValue")
-    FireSize.Value = 100
+    FireSize.Value = 50 -- Change this to change how long putting out fires takes
     FireSize.Name = "FireSize"
     FireSize.Parent = Part
     for i,v in pairs(FireParticles) do
