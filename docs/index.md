@@ -1,0 +1,15 @@
+<h1 align="center">Redon Tech Fire System</h1>
+
+# Overview
+The Redon Tech Fire System was a semi-popular fire system for Roblox, this system used to be sold for 100 robux while it was still in V1.0. This repository holds V2.0 of this system which is made and released for free to everyone. This system is designed to be just as good as other fire systems maybe even better with the added benifit of good documentation and open source code.
+
+## Features
+
+- Small and Large building fires
+- Custom fire particles made to look nice and realistic
+- Easy to configure
+- Fast and efficient with the ability to kill the system
+
+## Planned Features
+
+- Brush Fires

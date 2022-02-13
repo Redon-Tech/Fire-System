@@ -36,7 +36,7 @@ Settings.WaitTimes = {
 
 --\ API /--
 
-Settings.EnableAPI = false -- Enable the API to allow other scripts(server scripts) to know information about whats going on
+Settings.EnableAPI = true -- Enable the API to allow other scripts to know information about whats going on
 
 --\ DEVELOPER /--
 Settings.WaitTimes.BetweenTimes.Multiplier = 60 -- This is to change the multiplier applied to the random time between fires (default is 60, turns the number into minutes)

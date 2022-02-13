@@ -12,6 +12,7 @@
 -- DO NOT EDIT BELOW UNLESS YOU KNOW WHAT YOU ARE DOING --
 -- CHANGING THIS SCRIPT MAY BREAK THE SYSTEM DO NOT CHANGE IT --
 -- THIS SCRIPT IS COMPLETLY DIFFRENT AND REWRITTEN FROM V1.0 --
+-- FIND THE GITHUB SOURCE AT https://github.com/Redon-Tech/Redon-Tech-Fire-System --
 
 --\ SETUP /--
 local MainModule = {}
@@ -31,6 +32,15 @@ function MainModule.StdOut(TypeOriginal, Message) -- Handles warnings/prints err
 end
 
 --\ MAIN FUNCTIONS /--
+function MainModule.APICall(Call, ...)
+    if MainModule.Settings.EnableAPI then
+        MainModule.APIPoints.Server:Fire(Call, ...)
+        MainModule.APIPoints.Client:FireAllClients(Call, ...)
+    elseif MainModule.Settings.Deubg then
+        MainModule.StdOut("warn", "API is disabled ignoring API call")
+    end
+end
+
 local FireParticles = script:WaitForChild("FireParticles"):GetChildren()
 MainModule.FirefightersActive = 0
 MainModule.Fire = nil
@@ -91,6 +101,7 @@ function MainModule.BuildingFire(Building, Size) -- Future plan: Replace with mo
                 end
             end
             MainModule.Fire = Building
+            MainModule.APICall("FireStarted", "Large", Building)
         else
             MainModule.StdOut("print", "Starting a small fire.")
             local Parts = {}
@@ -112,6 +123,7 @@ function MainModule.BuildingFire(Building, Size) -- Future plan: Replace with mo
                 end
             end
             MainModule.Fire = Building
+            MainModule.APICall("FireStarted", "Small", Building)
         end
     end
 end
@@ -136,13 +148,27 @@ local func
 MainModule.Buildings = {}
 
 function MainModule.Kill()
-    func:Disconnect()
+    func:Disconnect() -- I honestly have no idea if this works because there is no need to test it
     script:Destroy()
 end
 
 function MainModule.Load(Settings)
     MainModule.Settings = Settings
-    func = spawn(function() while wait() do
+
+    if MainModule.Settings.EnableAPI then
+        MainModule.APIPoints = {
+            Server = Instance.new("BindableEvent"),
+            Client = Instance.new("RemoteEvent"),
+        }
+        MainModule.APIPoints.Server.Parent = game.ServerStorage
+        MainModule.APIPoints.Server.Name = "RTFSServerAPI"
+        MainModule.APIPoints.Client.Parent = game.ReplicatedStorage
+        MainModule.APIPoints.Client.Name = "RTFSClientAPI"
+
+        MainModule.APICall("Startup")
+    end
+
+    func = coroutine.create(function() while wait() do
         if MainModule.FireActive ~= nil then
             wait(MainModule.Settings.WaitTimes.CheckFireTime) -- Run the check every 10 seconds for lag reasons
             local FireStatus = MainModule.CheckBuildingFireStatus(MainModule.FireActive)
@@ -158,6 +184,7 @@ function MainModule.Load(Settings)
 
                 MainModule.FireActive = nil
                 MainModule.StdOut("print", "Fire has been extinguished.")
+                MainModule.APICall("FireEnded")
                 wait(math.random(MainModule.Settings.WaitTimes.BetweenTimes.Min*MainModule.Settings.WaitTimes.BetweenTimes.Multiplier, MainModule.Settings.WaitTimes.BetweenTimes.Max*MainModule.Settings.WaitTimes.BetweenTimes.Multiplier))
             end
         else
@@ -189,6 +216,8 @@ function MainModule.Load(Settings)
             end
         end
     end end)
+
+    coroutine.resume(func)
 end
 
 function MainModule.Start(Settings, RequiredSettings)
