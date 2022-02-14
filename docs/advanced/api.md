@@ -21,7 +21,8 @@ Call, ...
 ### System Events
 --------------------------------------------
 #### **Startup**
-Called when the system starts up  
+Called when the system starts up
+
 | Call    | Other Info |
 | ------- | ---------- |
 | Startup | N/A        |
@@ -30,7 +31,8 @@ Called when the system starts up
 
 --------------------------------------------
 #### **Fire Start**
-Fires when a fire is started by the system.  
+Fires when a fire is started by the system.
+
 | Call        | Other Info     |
 | ----------- | -------------- |
 | FireStarted | Size, Location |
@@ -39,7 +41,8 @@ Size will either be "Small" or "Large", location is the model which the fire sta
 
 --------------------------------------------
 #### **Fire End**
-Fires when a fire is detected over by the system.  
+Fires when a fire is detected over by the system.
+
 | Call      | Other Info |
 | --------- | ---------- |
 | FireEnded | N/A        |
