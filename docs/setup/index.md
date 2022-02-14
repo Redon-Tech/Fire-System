@@ -1,6 +1,6 @@
 # Installation
 
-Before you read a ton of text on how to setup you can follow this YouTube video. 
+Before you read a ton of text on how to setup you can follow [this YouTube video](https://youtu.be/Ld6sfG6mySM). 
 
 !!! warning ""
     May be outdated, if you find any differences refer back here
