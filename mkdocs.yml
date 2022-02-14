@@ -8,6 +8,8 @@ nav:
     - Home: index.md
     - Setup:
       - Initial Setup: setup/index.md
+      - Setting Up Buildings: setup/houses.md
+      - Settings and Final Setup: setup/settings.md
 theme:
   features:
     - navigation.instant
