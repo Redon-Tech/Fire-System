@@ -3,7 +3,6 @@
 Before you read a ton of text on how to setup you can follow this YouTube video. 
 
 !!! warning ""
-
     May be outdated, if you find any differences refer back here
 
 ## Pre-Requisites
