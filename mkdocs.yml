@@ -20,10 +20,12 @@ theme:
     primary: black
     accent: red
 markdown_extensions:
+  - admonition
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.superfences
   - pymdownx.snippets
+  - pymdownx.details
   - tables
   - def_list
   - pymdownx.tasklist:
