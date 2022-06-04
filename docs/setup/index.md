@@ -9,3 +9,5 @@ Before you read a ton of text on how to setup you can follow [this YouTube video
 
 - You should have already gotten the [model](https://www.roblox.com/library/8810547464/Redon-Tech-Fire-System)
 - You should have teams setup for the FireFighters
+
+We only provide support for the latest full release. (This is the version which the Roblox model runs)

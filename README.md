@@ -24,7 +24,9 @@ The Redon Tech Fire System was a semi-popular fire system for Roblox, this syste
 
 # Installation
 
-[Video](https://youtu.be/Ld6sfG6mySM)
+**WE ONLY PROVIDE SUPPORT FOR THE [LATEST RELEASE](https://www.roblox.com/library/8810547464/Redon-Tech-Fire-System)**
+
+[Video](https://youtu.be/Ld6sfG6mySM)  
 [Written](https://redon-tech.github.io/Redon-Tech-Fire-System/setup/)
 
 # Documentation
